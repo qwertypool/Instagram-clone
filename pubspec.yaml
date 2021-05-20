@@ -32,11 +32,15 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  # flutter_native_splash: ^1.1.8+4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
+# flutter_native_splash:
+#   background_image: 'assets/instagram.png'
+
 flutter:
 
   # The following line ensures that the Material Icons font is

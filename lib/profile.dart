@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/colorThemes.dart';
 
-// import ‘package:flutter/gestures.dart’;
+import 'colorThemes.dart';
+
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key key}) : super(key: key);
-
+  const ProfilePage({
+    Key key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final Brightness brightnessValue =
         MediaQuery.of(context).platformBrightness;
     bool isDark = brightnessValue == Brightness.dark;
     return DefaultTabController(
-          length: 2,
-          child: Scaffold(
+      length: 2,
+      child: Scaffold(
         // theme: ThemeData.light(),
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: pPrimaryColor,
           titleSpacing: 0,
-          toolbarHeight: 70,
+          toolbarHeight: 60,
           elevation: 0,
           leading: Icon(
             Icons.lock_outline_rounded,
@@ -27,7 +28,8 @@ class ProfilePage extends StatelessWidget {
           title: Text(
             'dipapndey',
             style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1.color, fontSize: 22),
+                color: Theme.of(context).textTheme.bodyText1.color,
+                fontSize: 22),
           ),
           actions: [
             IconButton(
@@ -116,17 +118,18 @@ class ProfilePage extends StatelessWidget {
             //SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(
-                  horizontal: pDefaultPadding, vertical: pDefaultPadding * 0.5),
+                  horizontal: pDefaultPadding, vertical: pDefaultPadding * 0.1),
               child: RichText(
                 text: TextSpan(
-                  text: 'Follow flutter_girlz❤️\n TCS\'er \nFlutter Developer💛',
+                  text:
+                      'Follow flutter_girlz❤️\n TCS\'er 😜 🤪 🤨\nFlutter Developer💛 ',
                   style: TextStyle(
                       color: Theme.of(context).textTheme.bodyText1.color),
                   children: <TextSpan>[
                     TextSpan(
                       text: '...more\n',
                       style: TextStyle(
-                        color: Colors.grey[400],
+                        color: Colors.grey[500],
                       ),
                     ),
                     TextSpan(
@@ -145,7 +148,7 @@ class ProfilePage extends StatelessWidget {
                     elevation: 0,
                     constraints: BoxConstraints(
                         minWidth: MediaQuery.of(context).size.width * 0.92,
-                        minHeight: 38.0),
+                        minHeight: 34.0),
                     // fillColor: Theme.of(context).textTheme.bodyText1.color,
                     fillColor: Colors.white,
                     child: Text(
@@ -171,96 +174,116 @@ class ProfilePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(
                   horizontal: pDefaultPadding * 0.7,
-                  vertical: pDefaultPadding * 0.4),
+                  vertical: pDefaultPadding * 0.25),
               child: Row(
                 children: [
                   buildCircleAvatar('assets/me.jpg'),
-                  SizedBox(width: pDefaultPadding*0.8,),
-                  buildCircleAvatar('assets/me2.jpg'),
-                  SizedBox(width: pDefaultPadding*0.8,),
-                  buildCircleAvatar('assets/me.jpg'),
-                  SizedBox(width: pDefaultPadding*0.8,),
-                GestureDetector(
-                  onTap: (){},
-                 child: CircleAvatar(
-                  radius: 35,
-                  backgroundColor: Theme.of(context).textTheme.bodyText1.color,
-                  child: CircleAvatar(
-                    radius: 34,
-                    backgroundColor: Colors.white,
-                    child: isDark? CircleAvatar(
-                      backgroundColor: Colors.black,
-                     child: Icon(Icons.add,size: 30,),
-                      radius: 32,
-                    ):
-                    CircleAvatar(
-                      backgroundColor: Colors.white,
-                     child: Icon(Icons.add,size: 30,color: Theme.of(context).textTheme.bodyText1.color,),
-                    radius: 32,
-                    ),
+                  SizedBox(
+                    width: pDefaultPadding * 0.8,
                   ),
-              ),
-                )
+                  buildCircleAvatar('assets/me2.jpg'),
+                  SizedBox(
+                    width: pDefaultPadding * 0.8,
+                  ),
+                  buildCircleAvatar('assets/me.jpg'),
+                  SizedBox(
+                    width: pDefaultPadding * 0.8,
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: CircleAvatar(
+                      radius: 35,
+                      backgroundColor:
+                          Theme.of(context).textTheme.bodyText1.color,
+                      child: CircleAvatar(
+                        radius: 34,
+                        backgroundColor: Colors.white,
+                        child: isDark
+                            ? CircleAvatar(
+                                backgroundColor: Colors.black,
+                                child: Icon(
+                                  Icons.add,
+                                  size: 30,
+                                ),
+                                radius: 32,
+                              )
+                            : CircleAvatar(
+                                backgroundColor: Colors.white,
+                                child: Icon(
+                                  Icons.add,
+                                  size: 30,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1
+                                      .color,
+                                ),
+                                radius: 32,
+                              ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
-            SizedBox(height: 10,),
+            // SizedBox(
+            //   height: 10,
+            // ),
             SizedBox(
               height: 50,
               child: AppBar(
                 bottom: TabBar(
-                  
                   tabs: [
                     Tab(
-                      icon: Icon(Icons.grid_on_outlined,color: Theme.of(context).textTheme.bodyText1.color,),
+                      icon: Icon(
+                        Icons.grid_on_outlined,
+                        color: Theme.of(context).textTheme.bodyText1.color,
+                      ),
                     ),
                     Tab(
-                      icon: Icon(
-                        Icons.person_pin_outlined,
-                       color: Theme.of(context).textTheme.bodyText1.color
-                      ),
+                      icon: Icon(Icons.person_pin_outlined,
+                          color: Theme.of(context).textTheme.bodyText1.color),
                     ),
                   ],
                 ),
               ),
             ),
 
-
-          Expanded(
+            Expanded(
               child: TabBarView(
                 children: [
                   // first tab bar view widget
                   Container(
-                    
-                     color: isDark? Colors.black:Colors.white,
-                    child: Center(
-                      child: Text(
-                        'First Page',
-                      ),
-                    ),
+                    color: isDark ? Colors.black : Colors.white,
+                    child: GridView.count(
+                          crossAxisCount: 3,
+                          childAspectRatio: 1,
+                          children: List.generate(7, (index) {
+                            return Padding(
+                              padding: const EdgeInsets.all(1.0),
+                              child: Container(
+                                child: Image.asset('assets/profilepic.jpg'),
+                              ),
+                            );
+                          }))
                   ),
 
                   // second tab bar viiew widget
                   Container(
-                     color:  isDark? Colors.black:Colors.white,
-                    child: Center(
-                      child: Text(
-                        'Second Page',
-                      ),
-                    ),
-                  ),
+                      color: isDark ? Colors.black : Colors.white,
+                      child: GridView.count(
+                          crossAxisCount: 3,
+                          childAspectRatio: 1,
+                          children: List.generate(7, (index) {
+                            return Text('data');
+                          }))),
                 ],
               ),
             ),
-
-
-            
           ],
         ),
       ),
     );
   }
-
   CircleAvatar buildCircleAvatar(String img) {
     return CircleAvatar(
       radius: 35,
@@ -276,3 +299,7 @@ class ProfilePage extends StatelessWidget {
     );
   }
 }
+
+
+
+
